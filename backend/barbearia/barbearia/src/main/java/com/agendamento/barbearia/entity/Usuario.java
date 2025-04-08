@@ -1,5 +1,6 @@
 package com.agendamento.barbearia.entity;
 
+import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,6 +12,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@DiscriminatorColumn(name = "tipo_usuario")
 @Table(name = "tb_usuario")
 public class Usuario {
     // |=======| ATRIBUTOS |=======|
