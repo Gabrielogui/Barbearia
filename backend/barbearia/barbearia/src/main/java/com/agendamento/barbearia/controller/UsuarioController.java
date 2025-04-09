@@ -7,8 +7,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.agendamento.barbearia.entity.Usuario;
+import com.agendamento.barbearia.dto.UsuarioDTO;
+//import com.agendamento.barbearia.entity.Usuario;
 import com.agendamento.barbearia.services.UsuarioService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1/usuarios")
@@ -20,8 +23,8 @@ public class UsuarioController {
     // |=======| MÉTODOS |=======|
     // CADASTRAR:
     @PostMapping("/cadastrar")
-    public ResponseEntity<?> cadastrarUsuario(@RequestBody Usuario usuario){
-        return usuarioService.cadastrarUsuario(usuario);
+    public ResponseEntity<?> cadastrarUsuario(@Valid @RequestBody UsuarioDTO usuarioDTO){
+        return usuarioService.cadastrarUsuario(usuarioDTO);
     }
 
 }
